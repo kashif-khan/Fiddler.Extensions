@@ -60,9 +60,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Fiddler.Extensions.ruleset" />
+    <None Include="post-build.bat" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy "$(TargetPath)" "%25appdata%25\..\Local\programs\Fiddler\Scripts\$(TargetFilename)"</PostBuildEvent>
+    <PostBuildEvent>$(ProjectDir)post-build.bat $(TargetPath)</PostBuildEvent>
   </PropertyGroup>
 </Project>
