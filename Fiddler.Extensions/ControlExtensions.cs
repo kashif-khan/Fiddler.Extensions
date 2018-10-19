@@ -10,17 +10,21 @@ namespace Fiddler.Extensions
 {
     public static class ControlExtensions
     {
+        public const string DefaultFieldValue = "Accepts REGEX: or EXACT:";
         public static void GotFocus<T>(this T sender) where T : Control
         {
-            sender.Text = string.Empty;
-            sender.ForeColor = Color.Black;
+            if (sender.Text == DefaultFieldValue)
+            {
+                sender.Text = string.Empty;
+                sender.ForeColor = Color.Black;
+            }
         }
 
         public static void LostFocus<T>(this T sender) where T : Control
         {
             if (string.IsNullOrEmpty(sender.Text))
             {
-                sender.Text = "Accepts REGEX: or EXACT:";
+                sender.Text = DefaultFieldValue;
                 sender.ForeColor = Color.Gray;
             }
         }

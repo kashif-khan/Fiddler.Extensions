@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace Fiddler.Extensions
 {
@@ -32,6 +33,31 @@ namespace Fiddler.Extensions
         {
             var searchCondition = sender as RichTextBox;
             searchCondition.GotFocus<RichTextBox>();
+        }
+
+        private void AddSearchConditionButton_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(SearchConditionRichTextBox.Text) && !SearchConditionsListBox.Items.Contains(SearchConditionRichTextBox.Text))
+            {
+                if (!SearchConditionRichTextBox.Text.Equals(ControlExtensions.DefaultFieldValue))
+                {
+                    SearchConditionsListBox.Items.Add(SearchConditionRichTextBox.Text);
+                }
+                SearchConditionRichTextBox.Text = string.Empty;
+                SearchConditionRichTextBox.LostFocus<RichTextBox>();
+            }
+        }
+
+        private void RemoveSearchConditionButton_Click(object sender, EventArgs e)
+        {
+            for (int i = SearchConditionsListBox.Items.Count - 1; i >= 0; --i)
+            {
+                var currentItem = SearchConditionsListBox.Items[i];
+                if (SearchConditionsListBox.SelectedItems.Contains(currentItem))
+                {
+                    SearchConditionsListBox.Items.Remove(currentItem);
+                }
+            }
         }
     }
 }

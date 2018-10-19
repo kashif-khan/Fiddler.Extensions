@@ -87,6 +87,7 @@
             this.AddSearchConditionButton.TabIndex = 1;
             this.AddSearchConditionButton.Text = "Add";
             this.AddSearchConditionButton.UseVisualStyleBackColor = true;
+            this.AddSearchConditionButton.Click += new System.EventHandler(this.AddSearchConditionButton_Click);
             // 
             // SearchConditionsListBox
             // 
@@ -108,6 +109,7 @@
             this.RemoveSearchConditionButton.TabIndex = 3;
             this.RemoveSearchConditionButton.Text = "Remove";
             this.RemoveSearchConditionButton.UseVisualStyleBackColor = true;
+            this.RemoveSearchConditionButton.Click += new System.EventHandler(this.RemoveSearchConditionButton_Click);
             // 
             // SearchableFilter
             // 
