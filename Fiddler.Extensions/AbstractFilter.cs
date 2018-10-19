@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Fiddler.Extensions
 {
@@ -13,6 +14,8 @@ namespace Fiddler.Extensions
         public abstract string FilterDescription { get; }
 
         public abstract FilterType[] FilterTypesSupported { get; }
+
+        public abstract UserControl Filter { get; }
 
         public abstract void Apply(Session oSession);
     }

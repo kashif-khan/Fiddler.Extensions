@@ -19,20 +19,19 @@ namespace Fiddler.Extensions
             singleFilterGroup.AccessibleDescription = filter.FilterDescription;
             SearchConditionRichTextBox.GotFocus += SearchConditionRichTextBox_GotFocus;
             SearchConditionRichTextBox.LostFocus += SearchConditionRichTextBox_LostFocus;
+            SearchConditionRichTextBox.LostFocus<RichTextBox>();
         }
 
         private void SearchConditionRichTextBox_LostFocus(object sender, EventArgs e)
         {
             var searchCondition = sender as RichTextBox;
-            searchCondition.Text = string.Empty;
-            searchCondition.ForeColor = Color.Black;
+            searchCondition.LostFocus<RichTextBox>();
         }
 
         private void SearchConditionRichTextBox_GotFocus(object sender, EventArgs e)
         {
             var searchCondition = sender as RichTextBox;
-            searchCondition.Text = "Accepts REGEX: or EXACT:";
-            searchCondition.ForeColor = Color.Gray;
+            searchCondition.GotFocus<RichTextBox>();
         }
     }
 }

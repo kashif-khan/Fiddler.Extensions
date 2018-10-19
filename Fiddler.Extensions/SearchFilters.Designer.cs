@@ -96,7 +96,7 @@
             this.FiltersTableLayout.Name = "FiltersTableLayout";
             this.FiltersTableLayout.RowCount = 1;
             this.FiltersTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.FiltersTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.FiltersTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 381F));
             this.FiltersTableLayout.Size = new System.Drawing.Size(647, 381);
             this.FiltersTableLayout.TabIndex = 1;
             // 
