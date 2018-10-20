@@ -40,6 +40,8 @@
             // 
             // singleFilterGroup
             // 
+            this.singleFilterGroup.AutoSize = true;
+            this.singleFilterGroup.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.singleFilterGroup.Controls.Add(this.tableLayoutPanel1);
             this.singleFilterGroup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.singleFilterGroup.Location = new System.Drawing.Point(0, 0);
@@ -51,6 +53,7 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.AutoSize = true;
             this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.23256F));
@@ -74,7 +77,7 @@
             this.SearchConditionRichTextBox.Location = new System.Drawing.Point(3, 3);
             this.SearchConditionRichTextBox.Multiline = false;
             this.SearchConditionRichTextBox.Name = "SearchConditionRichTextBox";
-            this.SearchConditionRichTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.SearchConditionRichTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             this.SearchConditionRichTextBox.Size = new System.Drawing.Size(878, 46);
             this.SearchConditionRichTextBox.TabIndex = 0;
             this.SearchConditionRichTextBox.Text = "";
@@ -123,8 +126,10 @@
             this.Name = "SearchableFilter";
             this.Size = new System.Drawing.Size(1081, 339);
             this.singleFilterGroup.ResumeLayout(false);
+            this.singleFilterGroup.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
