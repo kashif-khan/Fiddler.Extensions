@@ -49,45 +49,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbstractFilter.cs" />
-    <Compile Include="ControlExtensions.cs" />
-    <Compile Include="SearchableFilter.cs">
+    <Compile Include="AdvancedFilters\Abstraction\AbstractFilter.cs" />
+    <Compile Include="AdvancedFilters\Extensions\ControlExtensions.cs" />
+    <Compile Include="AdvancedFilters\UserControls\SearchableFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SearchableFilter.Designer.cs">
+    <Compile Include="AdvancedFilters\UserControls\SearchableFilter.Designer.cs">
       <DependentUpon>SearchableFilter.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdvancedFilter.cs" />
-    <Compile Include="FilterType.cs" />
+    <Compile Include="AdvancedFilters\FilterBootstrap\AdvancedFilter.cs" />
+    <Compile Include="AdvancedFilters\Constants\FilterType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RequestMethodFilter.cs" />
-    <Compile Include="SearchFilters.cs">
+    <Compile Include="AdvancedFilters\Filters\RequestMethodFilter.cs" />
+    <Compile Include="AdvancedFilters\UserControls\SearchFilters.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SearchFilters.Designer.cs">
+    <Compile Include="AdvancedFilters\UserControls\SearchFilters.Designer.cs">
       <DependentUpon>SearchFilters.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Tabs\AdvancedFilterTab.cs">
+    <Compile Include="AdvancedFilters\Tabs\AdvancedFilterTab.cs">
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="SearchableFilter.resx">
+    <EmbeddedResource Include="AdvancedFilters\UserControls\SearchableFilter.resx">
       <DependentUpon>SearchableFilter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SearchFilters.resx">
+    <EmbeddedResource Include="AdvancedFilters\UserControls\SearchFilters.resx">
       <DependentUpon>SearchFilters.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Tabs\AdvancedFilterTab.resx">
+    <EmbeddedResource Include="AdvancedFilters\Tabs\AdvancedFilterTab.resx">
       <DependentUpon>AdvancedFilterTab.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="Fiddler.Extensions.ruleset" />
-    <None Include="post-build.bat" />
+    <None Include="BuildEvents\post-build.bat" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>$(ProjectDir)post-build.bat $(TargetPath)</PostBuildEvent>
+    <PostBuildEvent>$(ProjectDir)BuildEvents\post-build.bat $(TargetPath)</PostBuildEvent>
   </PropertyGroup>
 </Project>

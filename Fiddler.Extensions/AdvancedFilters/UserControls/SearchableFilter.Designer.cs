@@ -72,11 +72,14 @@
             // 
             this.SearchConditionRichTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SearchConditionRichTextBox.Location = new System.Drawing.Point(3, 3);
+            this.SearchConditionRichTextBox.Multiline = false;
             this.SearchConditionRichTextBox.Name = "SearchConditionRichTextBox";
             this.SearchConditionRichTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.SearchConditionRichTextBox.Size = new System.Drawing.Size(878, 46);
             this.SearchConditionRichTextBox.TabIndex = 0;
             this.SearchConditionRichTextBox.Text = "";
+            this.SearchConditionRichTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchConditionRichTextBox_KeyDown);
+            this.SearchConditionRichTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchConditionRichTextBox_KeyPress);
             // 
             // AddSearchConditionButton
             // 
@@ -99,6 +102,7 @@
             this.SearchConditionsListBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.SearchConditionsListBox.Size = new System.Drawing.Size(878, 256);
             this.SearchConditionsListBox.TabIndex = 2;
+            this.SearchConditionsListBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchConditionsListBox_KeyPress);
             // 
             // RemoveSearchConditionButton
             // 
