@@ -39,19 +39,21 @@
             // 
             // FilterUseTableLayout
             // 
+            this.FilterUseTableLayout.AutoSize = true;
             this.FilterUseTableLayout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.FilterUseTableLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+#if DEBUG
+            this.FilterUseTableLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single; 
+#endif
             this.FilterUseTableLayout.ColumnCount = 1;
             this.FilterUseTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.FilterUseTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.FilterUseTableLayout.Controls.Add(this.FilterSearchAndEnableTableLayout, 0, 0);
             this.FilterUseTableLayout.Controls.Add(this.FiltersTableLayout, 0, 1);
             this.FilterUseTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FilterUseTableLayout.Location = new System.Drawing.Point(0, 0);
             this.FilterUseTableLayout.Name = "FilterUseTableLayout";
             this.FilterUseTableLayout.RowCount = 2;
-            this.FilterUseTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.813084F));
-            this.FilterUseTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90.18691F));
+            this.FilterUseTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.FilterUseTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.FilterUseTableLayout.Size = new System.Drawing.Size(653, 428);
             this.FilterUseTableLayout.TabIndex = 0;
             // 
@@ -59,7 +61,10 @@
             // 
             this.FilterSearchAndEnableTableLayout.AutoSize = true;
             this.FilterSearchAndEnableTableLayout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.FilterSearchAndEnableTableLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.FilterSearchAndEnableTableLayout.BackColor = System.Drawing.SystemColors.Control;
+#if DEBUG
+            this.FilterSearchAndEnableTableLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single; 
+#endif
             this.FilterSearchAndEnableTableLayout.ColumnCount = 2;
             this.FilterSearchAndEnableTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.FilterSearchAndEnableTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -70,16 +75,16 @@
             this.FilterSearchAndEnableTableLayout.Name = "FilterSearchAndEnableTableLayout";
             this.FilterSearchAndEnableTableLayout.RowCount = 1;
             this.FilterSearchAndEnableTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.FilterSearchAndEnableTableLayout.Size = new System.Drawing.Size(650, 35);
+            this.FilterSearchAndEnableTableLayout.Size = new System.Drawing.Size(650, 34);
             this.FilterSearchAndEnableTableLayout.TabIndex = 0;
             // 
             // EnableFilterCheckbox
             // 
             this.EnableFilterCheckbox.AutoSize = true;
-            this.EnableFilterCheckbox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.EnableFilterCheckbox.Dock = System.Windows.Forms.DockStyle.Top;
             this.EnableFilterCheckbox.Location = new System.Drawing.Point(4, 4);
             this.EnableFilterCheckbox.Name = "EnableFilterCheckbox";
-            this.EnableFilterCheckbox.Size = new System.Drawing.Size(111, 27);
+            this.EnableFilterCheckbox.Size = new System.Drawing.Size(111, 24);
             this.EnableFilterCheckbox.TabIndex = 0;
             this.EnableFilterCheckbox.Text = "Use Filters";
             this.EnableFilterCheckbox.UseVisualStyleBackColor = true;
@@ -87,7 +92,7 @@
             // 
             // SearchFiltersTextBox
             // 
-            this.SearchFiltersTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SearchFiltersTextBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.SearchFiltersTextBox.Location = new System.Drawing.Point(122, 4);
             this.SearchFiltersTextBox.Name = "SearchFiltersTextBox";
             this.SearchFiltersTextBox.Size = new System.Drawing.Size(524, 26);
@@ -98,16 +103,18 @@
             // 
             this.FiltersTableLayout.AutoSize = true;
             this.FiltersTableLayout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.FiltersTableLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+#if DEBUG
+            this.FiltersTableLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single; 
+#endif
             this.FiltersTableLayout.ColumnCount = 1;
             this.FiltersTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.FiltersTableLayout.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FiltersTableLayout.Location = new System.Drawing.Point(4, 46);
+            this.FiltersTableLayout.Location = new System.Drawing.Point(4, 45);
             this.FiltersTableLayout.Name = "FiltersTableLayout";
             this.FiltersTableLayout.RowCount = 1;
             this.FiltersTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.FiltersTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 377F));
-            this.FiltersTableLayout.Size = new System.Drawing.Size(650, 378);
+            this.FiltersTableLayout.Size = new System.Drawing.Size(650, 379);
             this.FiltersTableLayout.TabIndex = 1;
             // 
             // SearchFiltersContainerUserControl
@@ -123,6 +130,7 @@
             this.FilterSearchAndEnableTableLayout.ResumeLayout(false);
             this.FilterSearchAndEnableTableLayout.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

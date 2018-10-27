@@ -42,7 +42,7 @@ namespace Fiddler.Extensions
         public void OnLoad()
         {
 #if DEBUG
-            Debugger.Launch();
+            //Debugger.Launch();
 #endif
             try
             {
