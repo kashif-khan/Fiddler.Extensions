@@ -16,7 +16,7 @@ namespace Fiddler.Extensions
         public override string FilterName { get; protected set; }
         public override string FilterDescription { get; protected set; }
 
-        public override List<FilterType> FilterTypesSupported => new List<FilterType>();
+        public override List<SessionStates> FilterTypesSupported => new List<SessionStates>();
 
         public QueryStringFilterUserControl() : this(string.Empty, string.Empty)
         {

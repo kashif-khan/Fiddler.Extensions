@@ -1,34 +1,38 @@
-﻿using System;
+﻿using Fiddler;
+using Fiddler.Extensions.UI.Tabs;
+using System;
 using System.Diagnostics;
 using System.Windows.Forms;
-using Fiddler;
-using Fiddler.Extensions.UI.Tabs;
 
 [assembly: RequiredVersion("2.3.5.0")]
 namespace Fiddler.Extensions
 {
     public class AdvancedExtensionBootstrap : IAutoTamper, IDisposable
     {
-        private AdvancedFilterTab advancedFilterTab;
+        private AdvancedFilterTab advancedSearchFilterTab;
         public void AutoTamperRequestAfter(Session oSession)
         {
+            advancedSearchFilterTab?.ApplyActions(oSession);
         }
 
         public void AutoTamperRequestBefore(Session oSession)
         {
+            advancedSearchFilterTab?.ApplyActions(oSession);
         }
 
         public void AutoTamperResponseAfter(Session oSession)
         {
+            advancedSearchFilterTab?.ApplyActions(oSession);
         }
 
         public void AutoTamperResponseBefore(Session oSession)
         {
+            advancedSearchFilterTab?.ApplyActions(oSession);
         }
 
         public void Dispose()
         {
-            advancedFilterTab.Dispose();
+            advancedSearchFilterTab.Dispose();
         }
 
         public void OnBeforeReturningError(Session oSession)
@@ -42,16 +46,16 @@ namespace Fiddler.Extensions
         public void OnLoad()
         {
 #if DEBUG
-            //Debugger.Launch();
+            Debugger.Launch();
 #endif
             try
             {
-                advancedFilterTab = new AdvancedFilterTab();
-                FiddlerApplication.UI.tabsViews.TabPages.Add(advancedFilterTab);
+                advancedSearchFilterTab = new AdvancedFilterTab();
+                FiddlerApplication.UI.tabsViews.TabPages.Add(advancedSearchFilterTab);
             }
             catch (Exception ex)
             {
-                FiddlerObject.log("Error loading the " + this.advancedFilterTab.GetType().FullName);
+                FiddlerObject.log("Error loading the " + advancedSearchFilterTab.GetType().FullName);
                 FiddlerObject.log(ex.Message);
                 FiddlerObject.log(ex.StackTrace);
             }

@@ -27,7 +27,7 @@ namespace Fiddler.Extensions
 
         public virtual string FilterDescription { get; protected set; }
 
-        public virtual List<FilterType> FilterTypesSupported { get; }
+        public virtual List<SessionStates> FilterTypesSupported { get; }
 
         public virtual void Apply(Session oSession) { throw new NotImplementedException(); }
 
@@ -51,7 +51,7 @@ namespace Fiddler.Extensions
 
         public abstract string FilterDescription { get; protected set; }
 
-        public abstract List<FilterType> FilterTypesSupported { get; }
+        public abstract List<SessionStates> FilterTypesSupported { get; }
 
         public abstract void Apply(Session oSession);
 

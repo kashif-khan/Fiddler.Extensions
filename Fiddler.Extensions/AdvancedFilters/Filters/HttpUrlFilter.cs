@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Fiddler.Extensions.Constants;
+using Fiddler.Extensions.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +11,7 @@ namespace Fiddler.Extensions
 {
     internal class HttpUrlFilter : QueryStringFilterUserControl
     {
-        private static List<FilterType> filterTypes = new List<FilterType> { FilterType.BeforeRequest };
+        private static List<SessionStates> filterTypes = new List<SessionStates> { SessionStates.AutoTamperRequestBefore };
 
         private const string filterName = "URL Filter";
         private const string filterDescription = "This method filters the request based on the absolute URL";
@@ -25,11 +27,20 @@ namespace Fiddler.Extensions
         public override string FilterName => filterName;
         public override string FilterDescription => filterDescription;
 
-        public override List<FilterType> FilterTypesSupported => filterTypes;
+        public override List<SessionStates> FilterTypesSupported => filterTypes;
 
         public override void Apply(Session oSession)
         {
-
+            if (FilterTypesSupported.Contains(oSession.state))
+            {
+                foreach (string url in SearchConditionsListBox.Items)
+                {
+                    if (oSession.fullUrl.Contains(url, StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        oSession[FiddlerFlags.HideSession] = true.ToString().ToLower();
+                    }
+                }
+            }
         }
     }
 }

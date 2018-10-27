@@ -1,6 +1,8 @@
-﻿namespace Fiddler.Extensions
+﻿using System.Windows.Forms;
+
+namespace Fiddler.Extensions
 {
-    partial class SearchFiltersContainerUserControl
+    partial class SearchFiltersContainerUserControl : UserControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -42,7 +44,7 @@
             this.FilterUseTableLayout.AutoSize = true;
             this.FilterUseTableLayout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 #if DEBUG
-            this.FilterUseTableLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single; 
+            this.FilterUseTableLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
 #endif
             this.FilterUseTableLayout.ColumnCount = 1;
             this.FilterUseTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -63,7 +65,7 @@
             this.FilterSearchAndEnableTableLayout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.FilterSearchAndEnableTableLayout.BackColor = System.Drawing.SystemColors.Control;
 #if DEBUG
-            this.FilterSearchAndEnableTableLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single; 
+            this.FilterSearchAndEnableTableLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
 #endif
             this.FilterSearchAndEnableTableLayout.ColumnCount = 2;
             this.FilterSearchAndEnableTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -104,7 +106,7 @@
             this.FiltersTableLayout.AutoSize = true;
             this.FiltersTableLayout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 #if DEBUG
-            this.FiltersTableLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single; 
+            this.FiltersTableLayout.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
 #endif
             this.FiltersTableLayout.ColumnCount = 1;
             this.FiltersTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());

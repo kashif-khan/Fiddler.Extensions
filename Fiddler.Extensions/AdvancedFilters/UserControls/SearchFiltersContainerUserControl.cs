@@ -86,5 +86,16 @@ namespace Fiddler.Extensions
                 FiltersTableLayout.Controls.AddRange(filtersCollection.ToArray<UserControl>());
             }
         }
+
+        public void ApplyFilter(Session oSession)
+        {
+            if (EnableFilterCheckbox.Checked)
+            {
+                foreach (var filter in FiltersTableLayout.Controls.Cast<AbstractFilter>())
+                {
+                    filter.Apply(oSession);
+                }
+            }
+        }
     }
 }

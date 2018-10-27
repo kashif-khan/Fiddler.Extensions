@@ -139,7 +139,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.RichTextBox SearchConditionRichTextBox;
         private System.Windows.Forms.Button AddSearchConditionButton;
-        private System.Windows.Forms.ListBox SearchConditionsListBox;
+        protected System.Windows.Forms.ListBox SearchConditionsListBox;
         private System.Windows.Forms.Button RemoveSearchConditionButton;
     }
 }
