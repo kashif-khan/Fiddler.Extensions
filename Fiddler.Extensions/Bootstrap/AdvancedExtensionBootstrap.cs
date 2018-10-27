@@ -7,7 +7,7 @@ using Fiddler.Extensions.UI.Tabs;
 [assembly: RequiredVersion("2.3.5.0")]
 namespace Fiddler.Extensions
 {
-    public class AdvancedFilter : IAutoTamper, IDisposable
+    public class AdvancedExtensionBootstrap : IAutoTamper, IDisposable
     {
         private AdvancedFilterTab advancedFilterTab;
         public void AutoTamperRequestAfter(Session oSession)

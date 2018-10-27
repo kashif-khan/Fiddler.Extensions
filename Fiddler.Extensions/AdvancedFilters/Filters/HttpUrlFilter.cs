@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Fiddler.Extensions
 {
-    internal class HttpUrlFilter : QueryStringFilter
+    internal class HttpUrlFilter : QueryStringFilterUserControl
     {
         private static List<FilterType> filterTypes = new List<FilterType> { FilterType.BeforeRequest };
 

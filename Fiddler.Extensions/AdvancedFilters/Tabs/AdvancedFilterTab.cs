@@ -17,7 +17,7 @@ namespace Fiddler.Extensions.UI.Tabs
         public AdvancedFilterTab(string text, SessionIcons sessionIcon) : base(text)
         {
             ImageIndex = (int)sessionIcon;
-            filterContainer = new SearchFiltersContainer();
+            filterContainer = new SearchFiltersContainerUserControl();
             filterContainer.Dock = DockStyle.Fill;
             this.Controls.Add(filterContainer);
         }

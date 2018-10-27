@@ -1,6 +1,6 @@
 ﻿namespace Fiddler.Extensions
 {
-    partial class SearchFiltersContainer
+    partial class SearchFiltersContainerUserControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -110,13 +110,13 @@
             this.FiltersTableLayout.Size = new System.Drawing.Size(650, 378);
             this.FiltersTableLayout.TabIndex = 1;
             // 
-            // SearchFilters
+            // SearchFiltersContainerUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Controls.Add(this.FilterUseTableLayout);
-            this.Name = "SearchFilters";
+            this.Name = "SearchFiltersContainerUserControl";
             this.Size = new System.Drawing.Size(653, 428);
             this.FilterUseTableLayout.ResumeLayout(false);
             this.FilterUseTableLayout.PerformLayout();

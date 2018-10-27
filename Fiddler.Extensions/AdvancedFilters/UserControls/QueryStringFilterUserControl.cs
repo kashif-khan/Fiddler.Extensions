@@ -1,24 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Diagnostics;
 
 namespace Fiddler.Extensions
 {
-    internal partial class QueryStringFilter : AbstractFilter
+    internal partial class QueryStringFilterUserControl : AbstractFilter
     {
+        public override string FilterName { get; protected set; }
+        public override string FilterDescription { get; protected set; }
+
         public override List<FilterType> FilterTypesSupported => new List<FilterType>();
 
-        public override string FilterName { get => throw new NotImplementedException(); protected set => throw new NotImplementedException(); }
-        public override string FilterDescription { get => throw new NotImplementedException(); protected set => throw new NotImplementedException(); }
+        public QueryStringFilterUserControl() : this(string.Empty, string.Empty)
+        {
 
-        public QueryStringFilter(string filterName, string filterDescription) : base(filterName, filterDescription)
+        }
+
+        public QueryStringFilterUserControl(string filterName, string filterDescription) : base(filterName, filterDescription)
         {
             InitializeComponent();
             singleFilterGroup.Text = filterName;
@@ -111,7 +116,6 @@ namespace Fiddler.Extensions
 
         public override void Apply(Session oSession)
         {
-            throw new NotImplementedException();
         }
     }
 }

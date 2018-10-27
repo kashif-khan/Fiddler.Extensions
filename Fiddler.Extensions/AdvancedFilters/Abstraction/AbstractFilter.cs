@@ -20,8 +20,8 @@ namespace Fiddler.Extensions
         }
         public AbstractFilter(string filterName, string filterDescription)
         {
-            this.FilterName = filterName;
-            this.FilterDescription = filterDescription;
+            FilterName = filterName;
+            FilterDescription = filterDescription;
         }
         public virtual string FilterName { get; protected set; }
 
@@ -30,6 +30,8 @@ namespace Fiddler.Extensions
         public virtual List<FilterType> FilterTypesSupported { get; }
 
         public virtual void Apply(Session oSession) { throw new NotImplementedException(); }
+
+        protected ToolTip ToolTipControl = new ToolTip();
     }
 #else
     internal abstract class AbstractFilter : UserControl
@@ -52,6 +54,8 @@ namespace Fiddler.Extensions
         public abstract List<FilterType> FilterTypesSupported { get; }
 
         public abstract void Apply(Session oSession);
+
+        protected ToolTip ToolTipControl = new ToolTip();
     }
 #endif
 }

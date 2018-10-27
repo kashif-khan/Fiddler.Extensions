@@ -1,6 +1,6 @@
 ﻿namespace Fiddler.Extensions
 {
-    partial class QueryStringFilter : AbstractFilter
+    partial class QueryStringFilterUserControl : AbstractFilter
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,14 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.singleFilterGroup = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.SearchConditionRichTextBox = new System.Windows.Forms.RichTextBox();
             this.AddSearchConditionButton = new System.Windows.Forms.Button();
             this.SearchConditionsListBox = new System.Windows.Forms.ListBox();
             this.RemoveSearchConditionButton = new System.Windows.Forms.Button();
-            this.queryStringFilterToolip = new System.Windows.Forms.ToolTip(this.components);
             this.singleFilterGroup.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -120,12 +118,12 @@
             this.RemoveSearchConditionButton.UseVisualStyleBackColor = true;
             this.RemoveSearchConditionButton.Click += new System.EventHandler(this.RemoveSearchConditionButton_Click);
             // 
-            // SearchableFilter
+            // QueryStringFilterUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.singleFilterGroup);
-            this.Name = "SearchableFilter";
+            this.Name = "QueryStringFilterUserControl";
             this.Size = new System.Drawing.Size(1081, 339);
             this.singleFilterGroup.ResumeLayout(false);
             this.singleFilterGroup.PerformLayout();
@@ -143,6 +141,5 @@
         private System.Windows.Forms.Button AddSearchConditionButton;
         private System.Windows.Forms.ListBox SearchConditionsListBox;
         private System.Windows.Forms.Button RemoveSearchConditionButton;
-        private System.Windows.Forms.ToolTip queryStringFilterToolip;
     }
 }

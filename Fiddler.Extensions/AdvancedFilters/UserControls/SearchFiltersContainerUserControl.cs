@@ -11,9 +11,9 @@ using System.Reflection;
 
 namespace Fiddler.Extensions
 {
-    public partial class SearchFiltersContainer : UserControl
+    public partial class SearchFiltersContainerUserControl : UserControl
     {
-        public SearchFiltersContainer()
+        public SearchFiltersContainerUserControl()
         {
             InitializeComponent();
             SearchFiltersTextBox.GotFocus += SearchFiltersTextBox_GotFocus;
