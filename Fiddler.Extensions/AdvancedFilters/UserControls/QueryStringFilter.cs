@@ -7,18 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Linq;
 using System.Diagnostics;
 
 namespace Fiddler.Extensions
 {
-    internal partial class SearchableFilter : UserControl
+    internal partial class QueryStringFilter : AbstractFilter
     {
-        public SearchableFilter(AbstractFilter filter)
+        public override List<FilterType> FilterTypesSupported => new List<FilterType>();
+
+        public override string FilterName { get => throw new NotImplementedException(); protected set => throw new NotImplementedException(); }
+        public override string FilterDescription { get => throw new NotImplementedException(); protected set => throw new NotImplementedException(); }
+
+        public QueryStringFilter(string filterName, string filterDescription) : base(filterName, filterDescription)
         {
             InitializeComponent();
-            singleFilterGroup.Text = filter.FilterName;
-            singleFilterGroup.AccessibleDescription = filter.FilterDescription;
+            singleFilterGroup.Text = filterName;
+            singleFilterGroup.AccessibleDescription = filterDescription;
             SearchConditionRichTextBox.GotFocus += SearchConditionRichTextBox_GotFocus;
             SearchConditionRichTextBox.LostFocus += SearchConditionRichTextBox_LostFocus;
             SearchConditionRichTextBox.LostFocus<RichTextBox>();
@@ -103,6 +107,11 @@ namespace Fiddler.Extensions
         private void SearchConditionsListBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             RemoveSelectedItems();
+        }
+
+        public override void Apply(Session oSession)
+        {
+            throw new NotImplementedException();
         }
     }
 }

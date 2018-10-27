@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 using Fiddler;
 using Fiddler.Extensions.UI.Tabs;
@@ -40,8 +41,20 @@ namespace Fiddler.Extensions
 
         public void OnLoad()
         {
-            advancedFilterTab = new AdvancedFilterTab();
-            FiddlerApplication.UI.tabsViews.TabPages.Add(advancedFilterTab);
+#if DEBUG
+            Debugger.Launch();
+#endif
+            try
+            {
+                advancedFilterTab = new AdvancedFilterTab();
+                FiddlerApplication.UI.tabsViews.TabPages.Add(advancedFilterTab);
+            }
+            catch (Exception ex)
+            {
+                FiddlerObject.log("Error loading the " + this.advancedFilterTab.GetType().FullName);
+                FiddlerObject.log(ex.Message);
+                FiddlerObject.log(ex.StackTrace);
+            }
         }
     }
 }

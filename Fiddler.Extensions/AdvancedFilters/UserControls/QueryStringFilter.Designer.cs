@@ -1,6 +1,6 @@
 ﻿namespace Fiddler.Extensions
 {
-    partial class SearchableFilter
+    partial class QueryStringFilter : AbstractFilter
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.singleFilterGroup = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.SearchConditionRichTextBox = new System.Windows.Forms.RichTextBox();
             this.AddSearchConditionButton = new System.Windows.Forms.Button();
             this.SearchConditionsListBox = new System.Windows.Forms.ListBox();
             this.RemoveSearchConditionButton = new System.Windows.Forms.Button();
+            this.queryStringFilterToolip = new System.Windows.Forms.ToolTip(this.components);
             this.singleFilterGroup.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -141,5 +143,6 @@
         private System.Windows.Forms.Button AddSearchConditionButton;
         private System.Windows.Forms.ListBox SearchConditionsListBox;
         private System.Windows.Forms.Button RemoveSearchConditionButton;
+        private System.Windows.Forms.ToolTip queryStringFilterToolip;
     }
 }

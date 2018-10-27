@@ -1,6 +1,6 @@
 ﻿namespace Fiddler.Extensions
 {
-    partial class SearchFilters
+    partial class SearchFiltersContainer
     {
         /// <summary> 
         /// Required designer variable.
@@ -92,6 +92,7 @@
             this.SearchFiltersTextBox.Name = "SearchFiltersTextBox";
             this.SearchFiltersTextBox.Size = new System.Drawing.Size(524, 26);
             this.SearchFiltersTextBox.TabIndex = 1;
+            this.SearchFiltersTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchFiltersTextBox_KeyPress);
             // 
             // FiltersTableLayout
             // 

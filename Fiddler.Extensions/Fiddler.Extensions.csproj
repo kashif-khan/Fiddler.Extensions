@@ -32,6 +32,16 @@
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>Fiddler.Extensions.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Designer|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Designer\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS; DESIGNER</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>Fiddler.Extensions.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Fiddler">
       <HintPath>..\..\..\Users\eahaksk\AppData\Local\Programs\Fiddler\Fiddler.exe</HintPath>
@@ -49,34 +59,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdvancedFilters\Abstraction\AbstractFilter.cs" />
-    <Compile Include="AdvancedFilters\Extensions\ControlExtensions.cs" />
-    <Compile Include="AdvancedFilters\UserControls\SearchableFilter.cs">
+    <Compile Include="AdvancedFilters\Abstraction\AbstractFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AdvancedFilters\UserControls\SearchableFilter.Designer.cs">
-      <DependentUpon>SearchableFilter.cs</DependentUpon>
+    <Compile Include="AdvancedFilters\Extensions\ControlExtensions.cs" />
+    <Compile Include="AdvancedFilters\UserControls\QueryStringFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdvancedFilters\UserControls\QueryStringFilter.Designer.cs">
+      <DependentUpon>QueryStringFilter.cs</DependentUpon>
     </Compile>
     <Compile Include="AdvancedFilters\FilterBootstrap\AdvancedFilter.cs" />
     <Compile Include="AdvancedFilters\Constants\FilterType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="AdvancedFilters\Filters\RequestMethodFilter.cs" />
-    <Compile Include="AdvancedFilters\UserControls\SearchFilters.cs">
+    <Compile Include="AdvancedFilters\Filters\HttpUrlFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AdvancedFilters\UserControls\SearchFilters.Designer.cs">
-      <DependentUpon>SearchFilters.cs</DependentUpon>
+    <Compile Include="AdvancedFilters\UserControls\SearchFiltersContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdvancedFilters\UserControls\SearchFiltersContainer.Designer.cs">
+      <DependentUpon>SearchFiltersContainer.cs</DependentUpon>
     </Compile>
     <Compile Include="AdvancedFilters\Tabs\AdvancedFilterTab.cs">
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="AdvancedFilters\UserControls\SearchableFilter.resx">
-      <DependentUpon>SearchableFilter.cs</DependentUpon>
+    <EmbeddedResource Include="AdvancedFilters\UserControls\QueryStringFilter.resx">
+      <DependentUpon>QueryStringFilter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdvancedFilters\UserControls\SearchFilters.resx">
-      <DependentUpon>SearchFilters.cs</DependentUpon>
+    <EmbeddedResource Include="AdvancedFilters\UserControls\SearchFiltersContainer.resx">
+      <DependentUpon>SearchFiltersContainer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdvancedFilters\Tabs\AdvancedFilterTab.resx">
       <DependentUpon>AdvancedFilterTab.cs</DependentUpon>

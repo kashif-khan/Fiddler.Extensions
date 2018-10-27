@@ -11,9 +11,9 @@ using System.Reflection;
 
 namespace Fiddler.Extensions
 {
-    public partial class SearchFilters : UserControl
+    public partial class SearchFiltersContainer : UserControl
     {
-        public SearchFilters()
+        public SearchFiltersContainer()
         {
             InitializeComponent();
             SearchFiltersTextBox.GotFocus += SearchFiltersTextBox_GotFocus;
@@ -40,11 +40,11 @@ namespace Fiddler.Extensions
             var allTypes = Assembly.GetExecutingAssembly().GetTypes();
             foreach (var type in allTypes)
             {
-                if (type.BaseType.Name == nameof(AbstractFilter))
+                if (type.BaseType?.BaseType?.Name == nameof(AbstractFilter))
                 {
                     var filter = Activator.CreateInstance(type) as AbstractFilter;
-                    filter.Filter.Dock = DockStyle.Top;
-                    FiltersTableLayout.Controls.Add(filter.Filter);
+                    filter.Dock = DockStyle.Top;
+                    FiltersTableLayout.Controls.Add(filter);
                 }
             }
         }
@@ -59,6 +59,11 @@ namespace Fiddler.Extensions
         {
             SearchFiltersTextBox.Enabled = enableFilterCheckbox.Checked;
             FiltersTableLayout.Enabled = enableFilterCheckbox.Checked;
+        }
+
+        private void SearchFiltersTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
         }
     }
 }
