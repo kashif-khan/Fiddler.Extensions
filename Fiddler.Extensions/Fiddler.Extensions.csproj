@@ -71,6 +71,7 @@
     </Compile>
     <Compile Include="Bootstrap\AdvancedExtensionBootstrap.cs" />
     <Compile Include="AdvancedFilters\Constants\FilterType.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AdvancedFilters\Filters\HttpUrlFilter.cs">
       <SubType>UserControl</SubType>

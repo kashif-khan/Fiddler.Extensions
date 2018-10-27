@@ -1,24 +1,26 @@
-﻿using System;
+﻿using Fiddler.Extensions.Extensions;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Reflection;
 
 namespace Fiddler.Extensions
 {
     public partial class SearchFiltersContainerUserControl : UserControl
     {
+        private List<AbstractFilter> filtersCollection = new List<AbstractFilter>();
         public SearchFiltersContainerUserControl()
         {
             InitializeComponent();
             SearchFiltersTextBox.GotFocus += SearchFiltersTextBox_GotFocus;
             SearchFiltersTextBox.LostFocus += SearchFiltersTextBox_LostFocus;
-            LoadFilters();
+            AddFilters();
             EnableDisableFilterSection(EnableFilterCheckbox);
             SearchFiltersTextBox.LostFocus<TextBox>();
         }
@@ -35,7 +37,13 @@ namespace Fiddler.Extensions
             searchCondition.GotFocus<TextBox>();
         }
 
-        private void LoadFilters()
+        private void AddFilters()
+        {
+            LoadAllFilters();
+            FiltersTableLayout.Controls.AddRange(filtersCollection.ToArray<UserControl>());
+        }
+
+        private void LoadAllFilters()
         {
             var allTypes = Assembly.GetExecutingAssembly().GetTypes();
             foreach (var type in allTypes)
@@ -44,7 +52,7 @@ namespace Fiddler.Extensions
                 {
                     var filter = Activator.CreateInstance(type) as AbstractFilter;
                     filter.Dock = DockStyle.Top;
-                    FiltersTableLayout.Controls.Add(filter);
+                    filtersCollection.Add(filter);
                 }
             }
         }
@@ -63,7 +71,20 @@ namespace Fiddler.Extensions
 
         private void SearchFiltersTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+
+        }
+
+        private void SearchFiltersTextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (SearchFiltersTextBox.Text.IsNotNullOrEmpty())
+            {
+                FiltersTableLayout.Controls.Clear();
+                FiltersTableLayout.Controls.AddRange(filtersCollection.Where(x => x.FilterName.Contains(SearchFiltersTextBox.Text, StringComparison.InvariantCultureIgnoreCase)).ToArray<UserControl>());
+            }
+            else
+            {
+                FiltersTableLayout.Controls.AddRange(filtersCollection.ToArray<UserControl>());
+            }
         }
     }
 }
