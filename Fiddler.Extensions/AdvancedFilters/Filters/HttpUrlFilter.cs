@@ -35,9 +35,18 @@ namespace Fiddler.Extensions
             {
                 foreach (string url in SearchConditionsListBox.Items)
                 {
-                    if (oSession.fullUrl.Contains(url, StringComparison.InvariantCultureIgnoreCase))
+                    if (url.OICStartsWith(FiddlerConstantStrings.Regex))
                     {
-                        oSession[FiddlerFlags.HideSession] = true.ToString().ToLower();
+
+                    }
+                    else if (url.OICStartsWith(FiddlerConstantStrings.Exact))
+                    {
+
+                    }
+                    else
+                    {
+                        if ((oSession.fullUrl.Contains(url, StringComparison.InvariantCultureIgnoreCase)))
+                            oSession[FiddlerFlags.HideSession] = true.ToString().ToLower();
                     }
                 }
             }
