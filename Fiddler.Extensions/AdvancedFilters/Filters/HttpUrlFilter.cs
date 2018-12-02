@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Fiddler.Extensions
 {
-    internal class HttpUrlFilter : QueryStringFilterUserControl
+    internal class HttpUrlFilter : QueryStringGridFilterUserControl
     {
         private static List<SessionStates> filterTypes = new List<SessionStates> { SessionStates.AutoTamperRequestBefore };
 
@@ -33,20 +33,24 @@ namespace Fiddler.Extensions
         {
             if (FilterTypesSupported.Contains(oSession.state))
             {
-                foreach (string url in SearchConditionsListBox.Items)
+                foreach (DataGridViewRow eachRow in searchConditionDataGrid.Rows)
                 {
-                    if (url.OICStartsWith(FiddlerConstantStrings.Regex))
+                    var url = eachRow.Cells[Columns.FilterCondition].Value?.ToString();
+                    if (url != null)
                     {
+                        if (url.OICStartsWith(FiddlerConstantStrings.Regex))
+                        {
 
-                    }
-                    else if (url.OICStartsWith(FiddlerConstantStrings.Exact))
-                    {
+                        }
+                        else if (url.OICStartsWith(FiddlerConstantStrings.Exact))
+                        {
 
-                    }
-                    else
-                    {
-                        if ((oSession.fullUrl.Contains(url, StringComparison.InvariantCultureIgnoreCase)))
-                            oSession[FiddlerFlags.HideSession] = true.ToString().ToLower();
+                        }
+                        else
+                        {
+                            if ((oSession.fullUrl.Contains(url, StringComparison.InvariantCultureIgnoreCase)))
+                                oSession[FiddlerFlags.HideSession] = true.ToString().ToLower();
+                        }
                     }
                 }
             }

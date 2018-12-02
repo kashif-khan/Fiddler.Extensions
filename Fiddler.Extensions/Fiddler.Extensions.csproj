@@ -42,6 +42,16 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>Fiddler.Extensions.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DesignDebug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\DesignDebug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS; DESIGNDEBUG</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>Fiddler.Extensions.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Fiddler">
       <HintPath>..\..\..\Users\eahaksk\AppData\Local\Programs\Fiddler\Fiddler.exe</HintPath>
@@ -62,9 +72,17 @@
     <Compile Include="AdvancedFilters\Abstraction\AbstractFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="AdvancedFilters\Constants\ConditionType.cs" />
     <Compile Include="AdvancedFilters\Extensions\ControlExtensions.cs" />
+    <Compile Include="AdvancedFilters\Extensions\DataGridViewExtensions.cs" />
     <Compile Include="AdvancedFilters\Tabs\AdvancedFilterTab.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AdvancedFilters\UserControls\QueryStringGridFilterUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdvancedFilters\UserControls\QueryStringGridFilterUserControl.Designer.cs">
+      <DependentUpon>QueryStringGridFilterUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="AdvancedFilters\UserControls\QueryStringFilterUserControl.cs">
       <SubType>UserControl</SubType>
@@ -88,6 +106,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AdvancedFilters\Tabs\AdvancedFilterTab.resx">
+      <DependentUpon>AdvancedFilterTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdvancedFilters\UserControls\QueryStringGridFilterUserControl.resx">
+      <DependentUpon>QueryStringGridFilterUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdvancedFilters\UserControls\QueryStringFilterUserControl.resx">
       <DependentUpon>QueryStringFilterUserControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -98,6 +122,7 @@
   <ItemGroup>
     <None Include="Fiddler.Extensions.ruleset" />
     <None Include="BuildEvents\post-build.bat" />
+    <None Include="Properties\DataSources\Fiddler.Extensions.Constants.FiddlerConstantStrings.datasource" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

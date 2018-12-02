@@ -21,5 +21,16 @@ namespace Fiddler.Extensions.UI.Tabs
         {
             filterContainer.ApplyFilter(oSession);
         }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // AdvancedFilterTab
+            // 
+            this.AutoScroll = true;
+            this.ResumeLayout(false);
+
+        }
     }
 }
